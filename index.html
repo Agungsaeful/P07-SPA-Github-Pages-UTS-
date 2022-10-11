@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery AddRemove Class for SPA Menu</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+ <head>
+<body>
+  <div class="atas">
+    <ul class="subatas">
+      <li class="Menu"><a href="#Menu">Menu</a></li>
+      <br>
+      <li class="learn"><a href=#learn>learn</a></li>
+      <br>
+      <li class="Profie"><a href="#Profie">Profie</a></li>
+    </ul>
+  </div>
+  <br>
+  <br>
+  <br>
+    <div class="INFO Menu">
+      <h1>
+        WELLCOME BROTHER
+      </h1>
+      <img class="gambarhome" src="1.jpg">
+    </div>
+    <div class="INFO learn">
+      <h1>HTML</h1>
+        <p>
+         Hyh1ertext Markup Language adalah bahasa markah standar untuk dokumen yang dirancang untuk ditampilkan di peramban internet. Ini dapat dibantu oleh teknologi seperti Cascading Style Sheets dan bahasa skrip seperti JavaScript dan VBScript.
+       </p>
+       <br>
+      <h1>CSS</h1>
+        <p>
+         Cascading Style Sheet merupakan aturan untuk mengatur beberapa komponen dalam sebuah web sehingga akan lebih terstruktur dan seragam. CSS bukan merupakan bahasa pemrograman
+       </p>
+       <br>
+      <h1>jQuery</h1>
+       <p>
+        jQuery adalah pustaka JavaScript lintas-platform yang didesain untuk menyederhanakan client-side scripting pada HTML
+       </p>
+    </div>
+    <div class="INFO Profie">
+      <img class="gambarprofile" src="2.jpg">
+      <br>
+      <h1>AGUNG SAEFUL</h1>
+      <br>
+      <p>
+        Salam Kenal, Saya Agung saeful dari Cirebon Seorang Mahasiswa di STMIK IKMI Cirebon prodi Teknik Informatika
+      </p>
+    </div>
+</body>
+
+<style type="text/css">
+*{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-family: "Open Sans",sans-serif;
+}
+
+.atas{
+  background: linear-gradient(to right, #B63FB2, #6843AA); 
+  height: 90px;
+}
+
+.active{
+  
+}
+
+.Menu, .learn, .Profie{
+  list-style-type:none;
+  list-style-position:outside
+}
+
+.subatas{
+  float: right;
+  display: flex;
+  align-items: center;
+  min-height: 90px;
+  color: white;
+}
+
+ .subatas li{
+  margin-left: 10px;
+  text-transform: uppercase;
+  font-size: 14px;
+  padding: 12px 20px;
+  border-radius: 4px;
+  transition: .3s linear;
+
+}
+
+.subatas li:hover{
+  transform: scale(1.7);
+  color: white;
+}
+
+.gambarhome{
+  height: 40%;
+  width: 40%;
+  margin-top: 5px;
+}
+
+.gambarprofile{
+  width:  4cm;
+  border-radius: 50%;
+  box-shadow: 1px 1px 4px gray;
+  padding: 5px;
+  background: white;
+  margin: 15px;
+  transition: 0.2s;
+  opacity: 90%;
+  display : block; margin: 0 auto;
+}
+
+.INFO {
+  width: 90%;
+  height: auto;
+  position: fixed;
+  top: 130px;
+  right: 0;
+  margin-right: -150%;
+}
+
+.INFO.Menu.active,
+.INFO.learn.active,
+.INFO.Profie.active {
+  margin-right: 0;
+  font-size: 20px;
+  text-align: center;
+  color: #B63FB2;
+  margin-left: 70px;
+  margin-right: 70px;
+  
+}
+</style>
+
+<script type="text/javascript">
+  $('li').click(function() {
+   var subMenu = $(this).attr('class').substring(-1,7);
+     $("div.INFO").removeClass('active');
+     if ( !$( this ).hasClass( 'active' ) ) {
+       $("div."+subMenu).addClass('active');
+   }
+
+  $(this).siblings().removeClass('active');
+  $(this).toggleClass('active');
+});
+</script>
+
+<html>
